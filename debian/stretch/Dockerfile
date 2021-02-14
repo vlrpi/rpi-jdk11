@@ -9,6 +9,6 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -y openjdk-11-jdk
+RUN apt-get install -y default-jdk
 
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-arm64
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-arm64
