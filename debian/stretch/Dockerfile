@@ -8,8 +8,8 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
     echo 'Acquire::Languages "none";' > /etc/apt/apt.conf.d/no-lang
 
 RUN echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install -y openjdk-11-jdk
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y openjdk-11-jdk
 
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-arm64
