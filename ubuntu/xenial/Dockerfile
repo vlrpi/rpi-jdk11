@@ -7,9 +7,11 @@ LABEL telegram="https://t.me/vova_lantsov"
 RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup && \
     echo 'Acquire::Languages "none";' > /etc/apt/apt.conf.d/no-lang
 
+RUN apt-get update
+RUN apt-get install software-properties-common
+RUN apt-get upgrade -y
 RUN add-apt-repository -y ppa:openjdk-r/ppa
 RUN apt-get update
-RUN apt-get upgrade -y
 RUN apt-get install -y openjdk-11-jdk
 
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-arm64
